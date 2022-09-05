@@ -1,0 +1,44 @@
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+          <div class="card">
+              <div class="card-body text-center">
+                <span>{{ titulo | uppercase }} </span>               
+              
+                <form class="mt-5" [formGroup]="productoForm" (ngSubmit)="agregarProducto()" >
+                  <div class="form-group">
+                    <input type="text" class="form-control" formControlName="producto" placeholder="Producto">
+                  <div class="text-danger" *ngIf="productoForm.get('producto')?.hasError('required') && productoForm.get('producto')?.touched" >
+                  <span> El producto <strong>es obligatorio</strong> </span>
+                  </div>
+                  </div>
+                  <div class="form-group mt-3">
+                    <input type="text" class="form-control" formControlName="categoria"  placeholder="Categoria">
+                    <div class="text-danger" *ngIf="productoForm.get('categoria')?.hasError('required') && productoForm.get('categoria')?.touched" >
+                      <span> La categoria <strong>es obligatoria</strong> </span>
+                      </div>
+                  </div>
+                  <div class="form-group mt-3">
+                      <input type="text" class="form-control" formControlName="ubicacion"  placeholder="Ubicacion">
+                      <div class="text-danger" *ngIf="productoForm.get('ubicacion')?.hasError('required') && productoForm.get('ubicacion')?.touched" >
+                          <span> La ubicacion <strong>es obligatoria</strong> </span>
+                          </div>
+                    </div>
+                    <div class="form-group mt-3">
+                      <input type="number" class="form-control"  formControlName="precio"  placeholder="Precio">
+                      <div class="text-danger" *ngIf="productoForm.get('precio')?.hasError('required') && productoForm.get('precio')?.touched" >
+                          <span> El precio <strong>es obligatoria</strong> </span>
+                          </div>
+                    </div>
+                  <button type="submit"class="btn btn-success mt-3 float-start" >Aceptar</button>
+                  <button type="submit" routerLink="/" class="btn btn-info float-end mt-3">Volver</button>
+                  <div class="form-group">
+                  </div>
+              </form>
+  
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  
